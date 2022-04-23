@@ -4,8 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Pamisu</title>
+    <style>
+      canvas {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #231F20;
+      }
+    </style>
   </head>
-  <body>
-      Hello!
+  <body style="text-align: center">
+    <canvas id="unity-canvas"></canvas>
+    <script src="Build/PamisuIndex.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/PamisuIndex.data.unityweb",
+        frameworkUrl: "Build/PamisuIndex.framework.js.unityweb",
+        codeUrl: "Build/PamisuIndex.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Pamisu",
+        productName: "Pamisu Index",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
   </body>
 </html>
